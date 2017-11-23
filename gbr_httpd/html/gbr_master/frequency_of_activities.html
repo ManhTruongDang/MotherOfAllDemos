@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">       
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <title>Great Barrier Reef | Australia's Great Natural Wonder</title>
+		
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">		
+        <link rel="stylesheet" href="jquery.treeView.css">          
+        <link rel="stylesheet" href="jquery.dataTables.min.css">  
+		<link rel="stylesheet" href="jquery-ui.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="AdminLTE.min.css">
+		<link rel="stylesheet" href="assets/frequency_of_activities_style.css"> 
+		
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>   
+		<script src = "jquery.dataTables.min.js"></script>
+		<script src = "plotly-latest.min.js"></script>       
+		<script src="numeric.min.js"></script>      
+		<script src="app.min.js"></script>
+		<script src="liveTweet.js"></script>        
+    </head>
+    <body>
+        <div class = "container-fluid" style = "padding-left: 0px; padding-right: 0px; background-color: #ecf0f5;">
+            <div class = "page-header" style = "text-align: center; border-bottom: transparent; border-bottom:0px; margin:0px;padding-bottom:0px">    
+                <div class="lg-wrapper">
+					<div class="banners">
+						<a href="#" class="ir">
+							Griffith University
+						</a>
+					</div>
+					<div class="logo-header">
+						<h1 class="banner">Great Barrier Reef</h1>
+						<h3>Australia's great natural wonder</h3>
+					</div>
+					<div class="nt"></div>
+				</div>
+                <nav id = "navbar_bootstrap" class="navbar navbar-default">                     
+                    <div class="container-fluid" style = "padding-left: 0"> 
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>                        
+                        </div>                        
+                        <div class="collapse navbar-collapse" id="myNavbar"> 
+                            <ul class="nav navbar-nav navbar-collapse">                                
+								<li><a href="index.html">Home</a></li>
+								<li><a href="frequency_of_activities.html">Frequency of activities</a></li>
+								<li><a href="sentiment_analysis.html">Sentiment analysis</a></li>
+                                <li><a href="tweets_by_market.html">Tweets by market</a></li>
+                                <li><a href="word_graph_word_cloud.html">Word graph and word cloud</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>           
+            </div>    
+            <div class = "row content">        
+                <div class="col-xs-2 sidenav " style = "padding-left:0px; margin-left:0px" >            
+                    <div class="treeview-container ">
+                        <ul class="treeview">						
+							<li class = "Category" id = "scenic"> Scenic
+                                <!--  Beaches, Islands, Forests, Waterfalls. Submarine Creatures -->
+								<ul>
+									<li class = "Sub_category" id = "beach"> Marine species</li>
+									<li class = "Sub_category" id = "island"> Beaches</li>
+									<li class = "Sub_category" id = "forest"> Islands</li>                                        
+									<li class = "Sub_category" id = "submarine_creature"> Forests</li> 
+									<li class = "Sub_category"id = "valley"> Valleys</li>
+									<li class = "Sub_category"id = "waterfalls">Waterfalls</li>
+								</ul>
+							</li>				
+							<li class = "Category" id = "air_tours"> Air tours 
+								<!-- Sky diving, Hot air ballooning, Scenic flight tours -->
+								<ul>
+									<li class = "Sub_category" id = "scenic_flight_tour"> Scenic flight tours</li>
+									<li class = "Sub_category" id = "sky_diving"> Sky diving</li>
+									<!-- li class = "Sub_category" id = "hot_air_ballooning"> Hot air ballooning</li>
+									-->									
+								</ul>
+							</li>							
+							<li class = "Category" id = "surface_tours"> Water-based activities
+								<!-- Cruise, whale watching, fishing charters, boat tours, sailing-->
+								<ul>
+									<li class = "Sub_category" id = "sailing"> Sailing</li>
+									<li class = "Sub_category" id = "cruise"> Cruise</li>
+									<li class = "Sub_category" id = "boat_tour"> Boat tour</li>   
+									<li class = "Sub_category" id = "whale_watching"> Whale watching</li>
+									<li class = "Sub_category" id = "jet_tour">Jet tours</li>
+									<li class = "Sub_category" id = "fishing_charter"> Fishing charters</li>								
+								</ul>
+							</li>
+							<li class = "Category" id = "undersea_tours"> Underwater tours 
+								<!--  scuba doo/submarine tour, seawalker, snorkelling tours, scuba diving-->
+								<ul>
+									<li class = "Sub_category" id = "snorkeling_tour"> Snorkelling tour</li>
+									<li class = "Sub_category" id = "scuba_diving"> Diving</li>									
+									<!--
+									<li class = "Sub_category" id = "scuba_doo"> Scuba doo</li>
+									<li class = "Sub_category" id = "submarine_tour"> Submarine tour</li>
+									<li class = "Sub_category" id = "seawalker"> Seawalker</li>
+									-->									
+								</ul>
+							</li>							
+							<li class = "Category" id = "activities"> Activities
+								<!--  bungy jump, rafting, kayaking, horse riding, hiking, swimming, terrain vehicles-->
+								<ul>
+									<li class = "Sub_category" id = "hiking"> Hiking</li>
+									<li class = "Sub_category" id = "swimming"> Swimming</li>
+									<li class = "Sub_category" id = "horse_riding"> Horse riding</li>
+									<li class = "Sub_category" id = "surfing"> Surfing</li>
+									<!--
+									<li class = "Sub_category" id = "bungy_jump"> Bungy jump</li>
+									<li class = "Sub_category" id = "rafting"> Rafting</li>
+									<li class = "Sub_category" id = "kayaking"> Kayaking</li>								
+									<li class = "Sub_category" id = "terrain_vehicle"> Terrain vehicles</li>
+									-->
+								</ul>
+							</li>
+                            <li id = "General"> General </li>
+						</ul>
+                    </div>
+                    <script src="jquery.treeView.js"></script> 
+                    <script>
+						var a = $('.treeview').treeView();
+						//$('.treeview').treeView();
+					    $('.Category').click(function(e){
+			                e.preventDefault();
+			            })
+                    </script>    
+                </div>     
+                <div class = "col-xs-10" id = "column_10" >
+					<!--
+                    <div class="dmtruong">                
+                        <div class = "dmt" style = "text-align:right">
+                            <div id = "categories"></div>            
+                        </div>
+                        <div class = "dmt">
+                            <div id = "sub_categories"></div>
+                        </div>
+                    </div>
+					-->
+					<div class="hn-charts row" id = "to_be_generated">
+						<!-- TO BE GENERATED DYNAMICALLY 	-->
+						
+						<div class="col-xs-6" style = "width: 80%; padding-right:3px; padding-left: 0px">
+							<div class="box" >
+								<div class="box-header with-border">								
+									<h3 id = "title_of_categories_chart" class="box-title"></h3>
+									<!--
+									<div class="box-tools pull-right">
+										<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+										</button>
+									</div>
+									-->
+								</div>							
+								<div class="box-body hs_functional_module" id="map-canvas" >
+									<div id = "categories"></div>  
+								</div>							 
+							</div>
+						</div>							
+						<div class="col-xs-6"  style = "width: 80%; padding-left:0px">
+							<div class="box" >
+								<div class="box-header with-border">								
+									<h3 id = "title_of_sub_categories_chart" class="box-title"></h3>
+									<!--
+									<div class="box-tools pull-right">
+										<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+										</button>
+									</div>
+									-->
+								</div>							  
+								<div class="box-body hs_functional_module" id="map-canvas" >
+									<div id = "sub_categories"></div> 
+								</div>							  
+							</div>
+						</div>						
+							
+						<!-- 
+						<div class="col-xs-12"  id = "to_be_cleared" style = "padding-left: 0px">	
+							<div class="col-xs-3" style = "backgroun-color: #ffffff; margin-right: 0px; padding-right: 0px; margin-left: 0px; padding-left: 0px"> 
+								<div class="box" style = "height: 464px">
+									<div class="box-header with-border">								
+										<h3 class="box-title"></h3>										
+									</div>						
+									<div class="box-body hs_functional_module" id="map-canvas" >										
+									</div>								
+								</div>
+							</div>	
+							<div class="col-xs-6" style ="padding-left:0px; margin-left:0px; padding-right:0px; margin-right:0px" > 
+								<div class="box" style = "width: 520px">
+									<div class="box-header with-border">								
+										<h3 class="box-title"></h3>										
+									</div>						
+									<div class="box-body hs_functional_module" id="map-canvas" >
+										<div id = "categories" class = "display" width = "100%"></div> 
+									</div>								
+								</div>
+							</div>
+							<div class="col-xs-3" style = "backgroun-color: #ffffff; margin-left: 0px; padding-left: 0px">
+								<div class="box" style = "height: 464px">
+									<div class="box-header with-border">								
+										<h3 class="box-title"></h3>										
+									</div>						
+									<div class="box-body hs_functional_module" id="map-canvas" >										
+									</div>								
+								</div>
+							</div>							
+						</div>	
+						-->
+					</div>
+					
+					<div class="myTable">
+						<table id = "data_table"  class = "display" width= "100%"></table>
+					</div>					
+					<button id="myBut" class=" btn btn-primary" type="yes">Show tweets</button>
+					<!--
+					<div class="hn-charts row">
+						<div class="col-md-12" style="padding:0">
+							<div class="box">
+								<div class="box-header with-border">									
+									<h3 class="box-title"><p id = "stacked_bar_chart_header"></p></h3>
+									<div class="box-tools pull-right">
+										<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+										</button>
+									</div>
+								</div>															
+								<div class="box-body hs_functional_module" id="map-canvas" >
+									<div id = "stacked_bar_chart" class = "display" width= "100%"></div>
+								</div>						
+							  
+							</div>
+						</div>
+					</div>
+					-->
+					<!-- TO BE GENERATED DYNAMICALLY 
+					<div class="hn-charts row">
+						<div class="col-md-12" style="padding:0">
+							<div class="box">
+								<div class="box-header with-border">									
+									<h3 class="box-title"><p id = "stacked_bar_chart_header"></p></h3>
+									<div class="box-tools pull-right">
+										<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+										</button>
+									</div>
+								</div>								
+								<div class="box-body hs_functional_module" id="map-canvas" >
+									<div id = "stacked_bar_chart_for_sub_categories" class = "display" width= "100%"></div>
+								</div>							  
+							</div>
+						</div>
+					</div>					
+					-->
+					
+                </div>
+            </div>
+            <script src= "assets/data.js"></script>
+            <script src= "assets/frequency_of_activities.js"></script>
+            <!-- Footer -->
+			<!--
+            <footer class="col-sm-12" style ="
+                    margin-bottom: 0px;
+                    padding-bottom:0px;
+                    border:1px solid transparent;
+                    right:0;
+                    left:0 ; 
+                    bottom:0;
+                    background-color:#f8f8f8;
+                    border-color:#e7e7e7;                     
+                    padding-top:15px">                
+                    <div style = "text-align:center">Website designed by Big Data and Smart Anaytics lab - IIIS, Griffith University, in collaboration with the Griffith Institute for Tourism (GIFT) and the Australian Rivers Institute.</br> Funding provided by the National Environmental Science Programme (NESP) Tropical Water Quality Hub and the Association of Marine Park Tourism Operators (AMPTO) is acknowledged.</div>                     
+			</footer>
+			-->
+        </div>       
+    </body>
+</html>

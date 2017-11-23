@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">       
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <title>Great Barrier Reef | Australia's Great Natural Wonder</title>        
+        
+        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="jquery-ui.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="AdminLTE.min.css">  
+		<script src="vis.css"></script>
+        <link rel="stylesheet" href="assets/style.css">     		
+		
+		<script src="jquery.min.js"></script>        
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+		<script src="app.min.js"></script>
+		<script src="liveTweet.js"></script>  
+		<script src="d3.js"></script>	
+		<script src="vis.js"></script>
+		<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+		<script>
+			zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+			ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+		</script>
+		<style>
+			.banners{
+				width: 25%;
+			}
+			.banners a{
+				margin-top: 30px;
+				height: 40px;
+				width: 155px;
+				background: url(https://www.griffith.edu.au/__data/assets/file/0006/905739/griffith-logo-2.svg) no-repeat;
+				
+				/*
+				background: url(/griffith-logo-2.svg) no-repeat;
+				*/
+			}
+			.logo-header{
+				width: 50%
+				text-align: center;
+			}
+			.nt{
+				width: 25%;
+			}
+			.lg-wrapper{
+				display: flex;
+				justify-content: space-between;
+			}
+			.ir{
+				background-repeat: no-repeat;
+				text-indent: -9999em;
+				display: inline-block;
+				text-align: left;
+			}			 
+		</style>
+    </head>
+    <body>
+        <div class = "container-fluid" style = "padding-left: 0px; padding-right: 0px ;background-color: #ecf0f5;">
+            <div class = "page-header" style = "text-align: center; border-bottom: transparent; border-bottom:0px; margin:0px;padding-bottom:0px">                    
+                <div class="lg-wrapper">
+					<div class="banners">
+						<a href="#" class="ir">
+							Griffith University
+						</a>
+					</div>
+					<div class="logo-header">
+						<h1 class="banner">Great Barrier Reef</h1>
+						<h3>Australia's great natural wonder</h3>
+					</div>
+					<div class="nt"></div>
+				</div>
+                <nav id = "navbar_bootstrap" class="navbar navbar-default">                     
+                    <div class="container-fluid" style = "padding-left: 0"> 
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>                        
+                        </div>                         
+                        <div class="collapse navbar-collapse" id="myNavbar"> 
+                            <ul class="nav navbar-nav navbar-collapse">
+                                <!-- 
+								<li class="active"><a href="#">Home</a></li> 								
+                                <li> <a href="index.html"><span class = "glyphicon glyphicon-home"></span>  Home</a></li>
+                                -->
+								<li><a href="index.html">Home</a></li>
+								<li><a href="frequency_of_activities.html">Frequency of activities</a></li>
+								<li><a href="sentiment_analysis.html">Sentiment analysis</a></li>
+                                <li><a href="tweets_by_market.html">Tweets by market</a></li>
+                                <li><a href="word_graph_word_cloud.html">Word graph and word cloud</a></li>
+                            </ul>
+                         </div>
+                    </div>
+                </nav>           
+            </div>    
+        </div>    
+        <div class = "row content">            
+            <div class = "col-xs-12" > 
+				<!--			
+				<div id = "word_cloud" class = "display" width = "100%"></div>          
+                <div id = "word_graph" style = "height: 500px;" class = "display" width = "100%"></div>               							
+				-->
+				<div class="hn-charts row">
+                    <div class="col-md-12" style="padding:0">
+                        <div class="box">
+                            <div class="box-header with-border">								
+								<h3 class="box-title">Word cloud </h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                          <!-- /.box-header -->
+                            <div class="box-body hs_functional_module" id="map-canvas" >
+                                <div id = "word_cloud" class = "display" width = "100%"></div>  
+                            </div>
+                          <!-- ./box-body -->
+                        </div>
+					</div>	
+					<div class="col-md-12" style="padding:0">
+                        <div class="box" >
+                            <div class="box-header with-border">								
+								<h3 class="box-title">Word graph </h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                          <!-- /.box-header -->
+                            <div class="box-body hs_functional_module" id="map-canvas">
+                                <div id = "word_graph" class = "display" width = "100%" style = "height: 400px"></div>     
+                            </div>
+                          <!-- ./box-body -->
+                        </div>
+					</div>		
+				</div>
+				<div class="hn-charts row">                    
+				</div>
+				
+            </div> 
+        </div>   		
+		<script type="text/javascript" src="assets/stop_words.js"></script>
+        <script type="text/javascript" src="assets/word_graph_word_cloud.js"></script>		
+        <!-- Footer -->
+		<!--
+        <footer class="col-sm-12" style ="
+            margin-bottom: 0px;
+            padding-bottom:0px;
+            border:1px solid transparent;
+            right:0;
+            left:0 ; 
+            bottom:0;
+            background-color:#f8f8f8;
+            border-color:#e7e7e7;
+            padding-top:15px">
+            <div style = "text-align:center">Website designed by Big Data and Smart Anaytics lab - IIIS, Griffith University, in collaboration with the Griffith Institute for Tourism (GIFT) and the Australian Rivers Institute.</br> Funding provided by the National Environmental Science Programme (NESP) Tropical Water Quality Hub and the Association of Marine Park Tourism Operators (AMPTO) is acknowledged.</div> 
+        -->
+        </footer>       
+    </body>
+</html>

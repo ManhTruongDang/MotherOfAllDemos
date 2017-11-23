@@ -1,0 +1,175 @@
+@font-face{
+    font-family: UTM_Avo;
+    src: url(font/UTM_Avo.ttf);
+}
+
+/*
+#world_map{    
+    width: 100%;    
+    height: 400px; 
+    margin: 0px;
+    padding: 0px;
+}
+.row.content{
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+.custom{
+    width: 100%;
+    overflow: hidden;
+    padding: 0 5px;
+}
+
+#pie_chart_for_categories{    
+    width: 100%; 
+    height: 400px;
+    margin: 0px;
+    padding: 0px;
+}  
+
+#pie_chart_for_sub_categories{                
+    width: 100%; 
+    height: 400px;   
+    margin: 0px;
+    padding: 0px;
+}  
+.panel-body {
+    padding: 0px;
+}
+th { 
+   text-align: center;
+}
+.Positive_comment {
+        color: blue;  
+        text-align: center;
+}
+.Negative_comment {
+    color: red;
+    text-align: center;
+}
+.Neutral_comment {        
+    text-align: center;
+}
+*/
+
+.content{
+	background: #ecf0f5;
+}
+
+#world_map{
+    /* width: 670px;  */
+    width: 100%; 
+    
+    /* height: 400px;   */
+    /* height:100%; */
+    /*position: absolute; */
+    /* height: 50vh; */
+    height: 400px;
+    /* border: 1px solid green; */
+    /* float: left; */
+    /* margin: 5px; */
+    margin: 0px;
+    padding: 0px;
+}
+.row.content{
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+.custom{
+    width: 100%;
+    overflow: hidden;
+    padding: 0 5px;
+}
+
+#pie_chart_for_categories{
+    /* width: 500px;  */
+    width: 100%; 
+
+    height: 400px;
+    /* height:100%; */
+    /* height: 400px;                 */
+    
+    /*float: left; */
+    margin: 0px;
+    padding: 0px;
+}  
+
+#pie_chart_for_sub_categories{                
+    width: 100%; 
+
+    height: 400px;
+    
+    
+    /* float: left; */
+    margin: 0px;
+    padding: 0px;
+}    
+
+.panel-body {
+    padding: 0px;
+}
+
+/* For the DataTable */
+th { 
+   text-align: center;
+}
+.Positive_comment {
+        color: blue;  
+        text-align: center;
+}
+.Negative_comment {
+    color: red;
+    text-align: center;
+}
+.Neutral_comment {        
+    text-align: center;
+}
+.myTable{
+    display: none;
+}
+.myTable thead{
+    background: #1f77b4;
+    color: #fff;
+}
+.hn-charts{
+    display: flex;
+    justify-content: space-between;
+}
+.hn-charts > div{
+    width: 48%;
+}
+p{
+	text-align: center;
+}
+.logo-header{
+    font-family: UTM_Avo;
+}
+#navbar_bootstrap{
+    margin:0;
+}
+.logo-header h1{
+    margin: 0;
+    text-transform: uppercase;
+    color: rgb(100, 98, 98);
+}
+.logo-header h3{
+    color: rgb(224, 64, 131);   
+}
+.my-carousel-inner2 .item img{
+    object-fit: cover;
+    width: 28%;
+    height: 250px;
+    margin: auto;
+}
+.my-carousel-inner .item{
+    width: 100%;
+}
+.my-carousel-inner .item img{
+    max-height: 500px;
+    width: 100%!important;
+}
+.my-carousel-inner2{
+    padding-top: 20px;
+}

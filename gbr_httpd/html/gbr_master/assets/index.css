@@ -1,0 +1,31 @@
+.banners{
+	width: 25%;
+}
+.banners a{
+	margin-top: 30px;
+	height: 40px;
+	width: 155px;
+	background: url(https://www.griffith.edu.au/__data/assets/file/0006/905739/griffith-logo-2.svg) no-repeat;
+	
+	/*
+	background: url(/griffith-logo-2.svg) no-repeat;
+	*/
+}
+.logo-header{
+	width: 50%
+	text-align: center;
+}
+.nt{
+	width: 25%;
+}
+.lg-wrapper{
+	display: flex;
+	justify-content: space-between;
+}
+.ir{
+	background-repeat: no-repeat;
+	text-indent: -9999em;
+	display: inline-block;
+	text-align: left;
+}
+ 
