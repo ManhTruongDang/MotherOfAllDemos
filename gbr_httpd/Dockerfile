@@ -8,7 +8,7 @@ RUN yum install -y httpd; yum -y clean all
 RUN yum install -y mod_wsgi; yum -y clean all
 RUN yum -y update; yum -y clean all
 
-COPY html /www/
+COPY www /www/
 COPY httpd.conf /etc/httpd/conf/
 
 RUN pip install --upgrade pip; \

@@ -128,12 +128,21 @@ def list_all(page=1):
     form = manual_test()
     start_thread_in_views()
     tweets = Tweet.query.order_by(Tweet.id.desc()).paginate(page, config.TWEETS_PER_PAGE, error_out=False)
-    return render_template(
-        'list.html',
-        categories=Category.query.all(),
-        tweets=tweets,
-        form=form
-    )
+    return render_template('list.html', categories=Category.query.all(), tweets=tweets, form=form)
+
+
+@app.route("/labels", methods=['GET', "POST"])
+def predict_category():
+    sentence = request.args.get("sentence") if request.method == "GET" else request.form["sentence"]
+    if not sentence:
+        return ""
+    category = clf.predict([sentence])
+    category_names = {}
+    for i in range(len(category[0])):
+        label = Category.query.filter_by(id=i).first().name
+        category_names[str(label)] = category[0][i]
+    print(category_names)
+    return str(category_names)
 
 
 if __name__ == '__main__':
