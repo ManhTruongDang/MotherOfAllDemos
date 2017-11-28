@@ -101,7 +101,6 @@ def start_thread_in_views():
 
 def manual_test():
     form = ReusableForm(request.form)
-    print(form.errors)
     if request.method == 'POST':
         sentence = request.form['sentence']
         if form.validate():
@@ -141,7 +140,6 @@ def predict_category():
     for i in range(len(category[0])):
         label = Category.query.filter_by(id=i).first().name
         category_names[str(label)] = category[0][i]
-    print(category_names)
     return str(category_names)
 
 
